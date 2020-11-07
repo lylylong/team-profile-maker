@@ -1,5 +1,4 @@
 const Engineer = require("../lib/Engineer");
-const Employee = require("../lib/Employee");
 
 // testing if expect(received).toBe(expected)
 // passed
