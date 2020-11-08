@@ -22,3 +22,10 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+.card-header {
+  color: white;
+  background-color: rgb(165, 186, 250);
+  text-transform: uppercase;
+  font-weight: 700;
+}
