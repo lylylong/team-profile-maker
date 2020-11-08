@@ -16,13 +16,15 @@ const teamProfile = [];
 // };
 
 const process = () => {
-  console.log("Please build your team profile following the process:");
+  console.log(`
+  
+Build your team profile following the process:`);
   const askManager = () => {
     console.log(`
-    ================
-    Add Team Manager
-    ================
-    `);
+================
+Add Team Manager
+================
+`);
     inquirer
       .prompt([
         {
@@ -48,16 +50,13 @@ const process = () => {
         },
       ])
       .then((response) => {
-        console.log(response);
         const manager = new Manager(
           response.managerName,
           response.managerId,
           response.managerEmail,
           response.officeNum
         );
-
         teamProfile.push(manager);
-        console.log(teamProfile);
         createTeamCards();
       });
   };
@@ -87,7 +86,6 @@ const process = () => {
             break;
 
           case "Finish the Page":
-            // console.log(teamProfile);
             writeHtml();
             break;
         }
@@ -96,10 +94,10 @@ const process = () => {
 
   const askEngineer = () => {
     console.log(`
-        ===============
-        Add An Engineer
-        ===============
-        `);
+===============
+Add An Engineer
+===============
+`);
 
     inquirer
       .prompt([
@@ -126,7 +124,6 @@ const process = () => {
         },
       ])
       .then((response) => {
-        console.log(response);
         const engineer = new Engineer(
           response.engineerName,
           response.engineerId,
@@ -140,10 +137,10 @@ const process = () => {
 
   const askIntern = () => {
     console.log(`
-        =============
-        Add An Intern
-        =============
-        `);
+=============
+Add An Intern
+=============
+`);
 
     inquirer
       .prompt([
@@ -170,7 +167,6 @@ const process = () => {
         },
       ])
       .then((response) => {
-        console.log(response);
         const intern = new Intern(
           response.internName,
           response.internId,
@@ -183,13 +179,22 @@ const process = () => {
   };
 
   const writeHtml = () => {
+    console.log(
+      `
+    
+Here are your inputs:`
+    );
     console.log(teamProfile);
     fs.writeFileSync(
       "./dist/index.html",
       generateTeamCards(teamProfile),
       "utf-8"
     );
-    console.log("Info Ready!");
+    console.log(`
+======================================================================
+The building process is done, check your page at ("./dist/index.html")
+======================================================================
+`);
   };
 
   askManager();
