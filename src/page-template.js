@@ -1,5 +1,5 @@
 // const generateTeamCards = () => {
-// generate manager card
+
 // ${managerCard()}
 
 // ${manager.getRole()}
@@ -16,7 +16,7 @@
 // };
 
 const generateTeamCards = (teamProfile) => {
-  // generate engineer card
+  // generate manager card
   const managerCard = (manager) => {
     return `
     <div class="card border-secondary mb-3 mx-1" style="max-width: 18rem">
@@ -35,6 +35,7 @@ const generateTeamCards = (teamProfile) => {
               </div>
             </div>`;
   };
+  // generate engineer card
   const engineerCard = (engineer) => {
     return `<div class="card border-secondary mb-3 mx-1" style="max-width: 18rem">
     <div class="card-header">
@@ -52,7 +53,7 @@ const generateTeamCards = (teamProfile) => {
     </div>
   </div>`;
   };
-
+  // generate intern card
   const internCard = (intern) => {
     return `<div class="card border-secondary mb-3 mx-1" style="max-width: 18rem">
     <div class="card-header">

@@ -18,6 +18,11 @@ const teamProfile = [];
 const process = () => {
   console.log("Please build your team profile following the process:");
   const askManager = () => {
+    console.log(`
+    ================
+    Add Team Manager
+    ================
+    `);
     inquirer
       .prompt([
         {
@@ -90,9 +95,6 @@ const process = () => {
   };
 
   const askEngineer = () => {
-    // if (!engineerResponse) {
-    //   engineerResponse = [];
-    // }
     console.log(`
         ===============
         Add An Engineer
@@ -137,9 +139,6 @@ const process = () => {
   };
 
   const askIntern = () => {
-    // if (!engineerResponse) {
-    //   engineerResponse = [];
-    // }
     console.log(`
         =============
         Add An Intern
@@ -192,36 +191,6 @@ const process = () => {
     );
     console.log("Info Ready!");
   };
-
-  //   askManager()
-  //     .then((managerResponse) => {
-  //       console.log(managerResponse);
-  //       teamProfile.push(managerResponse);
-  //       console.log(teamProfile);
-  //       // fs.writeFile("./dist/index.html", generateTeamCards(teamProfile), (err) => {
-  //       //   if (err) {
-  //       //     console.log(err);
-  //       //     return;
-  //       //   }
-  //       // });
-  //       // console.log("Info Ready!");
-  //     })
-  //     .then(createTeamCards())
-  //     .then((teamProfile) => {
-  //       fs.writeFile(
-  //         "./dist/index.html",
-  //         generateTeamCards(teamProfile),
-  //         (err) => {
-  //           if (err) {
-  //             console.log(err);
-  //             return;
-  //           }
-  //         }
-  //       );
-  //       console.log("Info Ready!");
-  //     });
-
-  // const allResponse = managerResponse.concat(engineerResponse);
 
   askManager();
 };
