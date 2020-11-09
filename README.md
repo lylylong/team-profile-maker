@@ -18,11 +18,12 @@
 
 ## Process Video
 
-https:
+![Video](https://user-images.githubusercontent.com/70302749/98500850-9093d180-221b-11eb-9e5b-b89a8267a3aa.png)(https://drive.google.com/file/d/1XOnpQ_z072axLpyqA3rleuxTgK_fq15I/view)
+https://drive.google.com/file/d/1XOnpQ_z072axLpyqA3rleuxTgK_fq15I/view
 
-## Screenshots
+## HTML Screenshots
 
-The following GIF demonstrates the user experience:
+![Screen Shot](https://user-images.githubusercontent.com/70302749/98500792-604c3300-221b-11eb-89f0-1b43b57b49b8.png)
 
 ## Installation
 
