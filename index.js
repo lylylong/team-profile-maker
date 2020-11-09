@@ -6,14 +6,33 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const generateTeamCards = require("./src/page-template");
 const teamProfile = [];
-// const validateAnswer = (input) => {
-//   if (input) {
-//     return true;
-//   } else {
-//     console.log("Please provide the required info!");
-//     return false;
-//   }
-// };
+
+const validateInputs = (checksIfHasInputs) => ({
+  validate: (input) => {
+    if (input === "") {
+      return "Please provide the required info!";
+    }
+    return checksIfHasInputs ? checksIfHasInputs(input) : true;
+  },
+});
+
+const validateNumbers = (checksIfANum) => ({
+  validate: (input) => {
+    if (isNaN(input) || input === "") {
+      return "Please provide a valid number!";
+    }
+    return checksIfANum ? checksIfANum(input) : true;
+  },
+});
+
+const validateEmails = (checksIfEmail) => ({
+  validate: (input) => {
+    if (!input.match(/\S+@\S+\.\S+/)) {
+      return "Please provide a valid email!";
+    }
+    return checksIfEmail ? checksIfEmail(input) : true;
+  },
+});
 
 const process = () => {
   console.log(`
@@ -21,32 +40,35 @@ const process = () => {
 Build your team profile following the process:`);
   const askManager = () => {
     console.log(`
-================
-Add Team Manager
-================
+=================
+Team Manager Info
+=================
 `);
     inquirer
       .prompt([
         {
           type: "input",
           name: "managerName",
-          message: "Provide team manager's name (Required)",
-          // validate: validateAnswer(),
+          message: "Provide team manager's name:",
+          ...validateInputs(),
         },
         {
           type: "input",
           name: "managerId",
-          message: "Provide team manager's id (Required)",
+          message: "Provide team manager's ID:",
+          ...validateNumbers(),
         },
         {
           type: "input",
           name: "managerEmail",
-          message: "Provide team manager's email (Required)",
+          message: "Provide team manager's email:",
+          ...validateEmails(),
         },
         {
           type: "input",
           name: "officeNum",
-          message: "Provide office number (Required)",
+          message: "Provide office number:",
+          ...validateNumbers(),
         },
       ])
       .then((response) => {
@@ -104,23 +126,26 @@ Add An Engineer
         {
           type: "input",
           name: "engineerName",
-          message: "Provide engineer's name (Required)",
-          // validate: validateAnswer(),
+          message: "Provide engineer's name:",
+          ...validateInputs(),
         },
         {
           type: "input",
           name: "engineerId",
-          message: "Provide engineer's id (Required)",
+          message: "Provide engineer's id:",
+          ...validateNumbers(),
         },
         {
           type: "input",
           name: "engineerEmail",
-          message: "Provide engineer's email (Required)",
+          message: "Provide engineer's email:",
+          ...validateEmails(),
         },
         {
           type: "input",
           name: "engineerGithub",
-          message: "Provide engineer's github (Required)",
+          message: "Provide engineer's github user name:",
+          ...validateInputs(),
         },
       ])
       .then((response) => {
@@ -147,23 +172,26 @@ Add An Intern
         {
           type: "input",
           name: "internName",
-          message: "Provide intern's name (Required)",
-          // validate: validateAnswer(),
+          message: "Provide intern's name:",
+          ...validateInputs(),
         },
         {
           type: "input",
           name: "internId",
-          message: "Provide intern's id (Required)",
+          message: "Provide intern's ID:",
+          ...validateNumbers(),
         },
         {
           type: "input",
           name: "internEmail",
-          message: "Provide intern's email (Required)",
+          message: "Provide intern's email:",
+          ...validateEmails(),
         },
         {
           type: "input",
           name: "internSchool",
-          message: "Provide intern's school (Required)",
+          message: "Provide intern's school name:",
+          ...validateInputs(),
         },
       ])
       .then((response) => {
