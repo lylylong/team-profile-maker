@@ -18,7 +18,7 @@
 
 ## Process Video
 
-![Video](https://user-images.githubusercontent.com/70302749/98500850-9093d180-221b-11eb-9e5b-b89a8267a3aa.png)(https://drive.google.com/file/d/1XOnpQ_z072axLpyqA3rleuxTgK_fq15I/view)
+[![Video](https://user-images.githubusercontent.com/70302749/98500850-9093d180-221b-11eb-9e5b-b89a8267a3aa.png)](https://drive.google.com/file/d/1XOnpQ_z072axLpyqA3rleuxTgK_fq15I/view)
 https://drive.google.com/file/d/1XOnpQ_z072axLpyqA3rleuxTgK_fq15I/view
 
 ## HTML Screenshots
