@@ -7,6 +7,7 @@ const Intern = require("./lib/Intern");
 const generateTeamCards = require("./src/page-template");
 const teamProfile = [];
 
+// set up proper validation for user inputs
 const validateInputs = (checksIfHasInputs) => ({
   validate: (input) => {
     if (input === "") {
@@ -15,7 +16,6 @@ const validateInputs = (checksIfHasInputs) => ({
     return checksIfHasInputs ? checksIfHasInputs(input) : true;
   },
 });
-
 const validateNumbers = (checksIfANum) => ({
   validate: (input) => {
     if (isNaN(input) || input === "") {
@@ -24,7 +24,6 @@ const validateNumbers = (checksIfANum) => ({
     return checksIfANum ? checksIfANum(input) : true;
   },
 });
-
 const validateEmails = (checksIfEmail) => ({
   validate: (input) => {
     if (!input.match(/\S+@\S+\.\S+/)) {
@@ -34,10 +33,12 @@ const validateEmails = (checksIfEmail) => ({
   },
 });
 
+// the building process & all questions
 const process = () => {
   console.log(`
   
 Build your team profile following the process:`);
+  // add manager card
   const askManager = () => {
     console.log(`
 =================
@@ -82,14 +83,14 @@ Team Manager Info
         createTeamCards();
       });
   };
-
+  // continue or finish
   const createTeamCards = () => {
     inquirer
       .prompt([
         {
           type: "list",
           name: "continue",
-          message: "Choose one of the following options?",
+          message: "Choose one of the following options:",
           choices: [
             "Build An Engineer Profile",
             "Build An Intern Profile",
@@ -113,14 +114,13 @@ Team Manager Info
         }
       });
   };
-
+  // to add one engineer card
   const askEngineer = () => {
     console.log(`
 ===============
 Add An Engineer
 ===============
 `);
-
     inquirer
       .prompt([
         {
@@ -159,14 +159,13 @@ Add An Engineer
         createTeamCards();
       });
   };
-
+  // to add one intern card
   const askIntern = () => {
     console.log(`
 =============
 Add An Intern
 =============
 `);
-
     inquirer
       .prompt([
         {
@@ -206,6 +205,7 @@ Add An Intern
       });
   };
 
+  // when the building process is done, the html is saved as index.html in dist folder
   const writeHtml = () => {
     console.log(
       `
@@ -224,8 +224,9 @@ The building process is done, check your page at ("./dist/index.html")
 ======================================================================
 `);
   };
-
+  // to answer all questions
   askManager();
 };
 
+// run node index to start building the team profile
 process();

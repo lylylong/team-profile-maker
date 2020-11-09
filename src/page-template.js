@@ -1,20 +1,3 @@
-// const generateTeamCards = () => {
-
-// ${managerCard()}
-
-// ${manager.getRole()}
-//             ${manager.getEmail()}
-//             ${manager.getOfficeNum()}
-
-// const managerCard = (teamProfile) => {
-//   return `
-//             ${teamProfile[0].managerName}
-//             ${teamProfile[0].managerId}
-//             ${teamProfile[0].managerEmail}
-//             ${teamProfile[0].officeNum}
-//             `;
-// };
-
 const generateTeamCards = (teamProfile) => {
   // generate manager card
   const managerCard = (manager) => {
@@ -71,7 +54,7 @@ const generateTeamCards = (teamProfile) => {
     </div>
   </div>`;
   };
-
+  // sort page cards
   const finalProfiles = [];
   finalProfiles.push(
     teamProfile
@@ -90,7 +73,6 @@ const generateTeamCards = (teamProfile) => {
       .map((intern) => internCard(intern))
       .join("")
   );
-
   return finalProfiles.join("");
 };
 
@@ -126,7 +108,6 @@ module.exports = (teamProfile) => {
             <div class="row">
               <div class="team-cards col-12 d-flex flex-wrap justify-content-center">
               ${generateTeamCards(teamProfile)}
-              
               </div>
             </div>
           </div>
